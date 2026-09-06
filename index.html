@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confeitaria da Juliana — Bolos, tortas e doces</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Caveat:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fbf3ec;
+    --cream-2:#f4e6da;
+    --rose:#c76b7a;
+    --rose-deep:#a04a5c;
+    --cocoa:#5a3625;
+    --cocoa-light:#7a5038;
+    --ink:#3d2a20;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Nunito Sans', sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--cocoa);
+  }
+  .script{
+    font-family:'Caveat', cursive;
+    color:var(--rose-deep);
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  /* header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,243,236,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--cream-2);
+  }
+  .nav-wrap{
+    max-width:1100px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand img{width:42px; height:42px; border-radius:50%; object-fit:cover;}
+  .brand span{font-family:'Fraunces', serif; font-size:1.15rem; font-weight:600; color:var(--cocoa);}
+  nav ul{list-style:none; display:flex; gap:26px;}
+  nav a{font-size:0.95rem; font-weight:600; color:var(--cocoa-light);}
+  nav a:hover{color:var(--rose-deep);}
+  .nav-cta{
+    background:var(--rose-deep); color:#fff !important; padding:9px 18px;
+    border-radius:100px; font-size:0.9rem; font-weight:700;
+  }
+  @media(max-width:720px){ nav ul{display:none;} }
+
+  /* hero */
+  .hero{
+    max-width:1100px; margin:0 auto;
+    padding:70px 24px 40px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:center;
+  }
+  .hero-eyebrow{font-size:1.4rem;}
+  .hero h1{font-size:2.9rem; line-height:1.12; margin:8px 0 18px;}
+  .hero p{font-size:1.08rem; color:var(--cocoa-light); max-width:46ch; margin-bottom:28px;}
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--rose-deep); color:#fff; padding:15px 28px;
+    border-radius:100px; font-weight:700; font-size:1rem;
+    box-shadow:0 10px 24px -8px rgba(160,74,92,0.55);
+  }
+  .btn-primary svg{width:20px; height:20px;}
+  .hero-media{
+    position:relative;
+    border-radius:26px; overflow:hidden;
+    box-shadow:0 20px 45px -20px rgba(58,38,26,0.45);
+    aspect-ratio:4/5;
+  }
+  .hero-media img{width:100%; height:100%; object-fit:cover;}
+
+  /* section framing */
+  section{max-width:1100px; margin:0 auto; padding:70px 24px;}
+  .section-head{max-width:60ch; margin-bottom:44px;}
+  .section-head .script{font-size:1.5rem; display:block; margin-bottom:4px;}
+  .section-head h2{font-size:2rem;}
+
+  /* menu grid */
+  .menu-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:26px;
+  }
+  .menu-card{
+    background:#fff; border-radius:20px; overflow:hidden;
+    border:1px solid var(--cream-2);
+    display:flex; flex-direction:column;
+  }
+  .menu-card .thumb{
+    aspect-ratio:4/3; overflow:hidden; background:var(--cream-2);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .menu-card .thumb img{width:100%; height:100%; object-fit:cover;}
+  .menu-card .icon-thumb{
+    width:100%; height:100%;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, #f4e0e3, #f6e9dd);
+  }
+  .menu-card .icon-thumb svg{width:58px; height:58px; color:var(--rose-deep);}
+  .menu-card .info{padding:20px 22px 24px;}
+  .menu-card h3{font-size:1.2rem; margin-bottom:6px;}
+  .menu-card p{font-size:0.92rem; color:var(--cocoa-light);}
+  @media(max-width:900px){ .menu-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:600px){ .menu-grid{grid-template-columns:1fr;} .hero{grid-template-columns:1fr;} }
+
+  /* gallery strip */
+  .gallery-strip{
+    background:var(--cocoa); color:#fce9df;
+  }
+  .gallery-strip .section-head h2, .gallery-strip .script{ color:#fce9df; }
+  .gallery-strip .script{ color:#e8b7bb; }
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+  }
+  .gallery-grid img{
+    border-radius:16px; aspect-ratio:1/1; object-fit:cover;
+  }
+  @media(max-width:700px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} }
+
+  /* about strip */
+  .about{
+    display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;
+  }
+  .about-quote{
+    font-family:'Fraunces', serif; font-size:1.5rem; line-height:1.4;
+    color:var(--cocoa); font-weight:500;
+  }
+  .about-quote span{color:var(--rose-deep);}
+  @media(max-width:800px){ .about{grid-template-columns:1fr;} }
+
+  /* CTA band */
+  .cta-band{
+    background:var(--rose); color:#fff; text-align:center;
+    border-radius:28px; max-width:1100px; margin:0 auto 70px;
+    padding:60px 24px;
+  }
+  .cta-band h2{color:#fff; font-size:2rem; margin-bottom:14px;}
+  .cta-band p{color:#fbe4e7; margin-bottom:30px; font-size:1.05rem;}
+  .btn-light{
+    display:inline-flex; align-items:center; gap:10px;
+    background:#fff; color:var(--rose-deep); padding:15px 30px;
+    border-radius:100px; font-weight:700; font-size:1rem;
+  }
+
+  footer{
+    text-align:center; padding:34px 24px 44px; color:var(--cocoa-light); font-size:0.9rem;
+  }
+  footer strong{color:var(--cocoa);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="brand">
+      <img src="images/logo.png" alt="Logo Confeitaria da Juliana">
+      <span>Confeitaria da Juliana</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/5511981828580" target="_blank" rel="noopener">Peça no WhatsApp</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="script hero-eyebrow">feito à mão, encomenda por encomenda</span>
+    <h1>Bolos, tortas e doces feitos com amor e carinho.</h1>
+    <p>Cada receita da Juliana é preparada devagar, com ingredientes selecionados — sempre bem saboroso, do jeitinho de confeitaria de bairro.</p>
+    <a class="btn-primary" href="https://wa.me/5511981828580" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1s-.7.9-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.8c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"></path><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.3 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.4-.5-4.8-1.3l-.3-.2-3.2 1 1-3.1-.2-.3C3.5 14.6 3 13.3 3 12c0-4.4 3.6-8 9-8s9 3.6 9 8-3.6 8-9 8z"></path></svg>
+      Peça pelo WhatsApp
+    </a>
+  </div>
+  <div class="hero-media">
+    <img src="images/bolo-queijo.png" alt="Bolo salgado coberto com queijo e tomate cereja">
+  </div>
+</section>
+
+<section id="cardapio">
+  <div class="section-head">
+    <span class="script">o que a Juliana faz</span>
+    <h2>Cardápio</h2>
+  </div>
+  <div class="menu-grid">
+
+    <div class="menu-card">
+      <div class="thumb"><img src="images/bolo-cenoura.png" alt="Fatia de bolo de cenoura com cobertura de chocolate"></div>
+      <div class="info">
+        <h3>Bolos</h3>
+        <p>Clássicos e recheados, feitos na hora e sob encomenda.</p>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="thumb icon-thumb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10a8 8 0 0 1 16 0" stroke-linecap="round"/><path d="M3 10h18v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 14v2a6 6 0 0 0 12 0v-2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="info">
+        <h3>Tortas</h3>
+        <p>Doces e geladas, prontas para a sobremesa perfeita.</p>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="thumb icon-thumb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <div class="info">
+        <h3>Doces em geral</h3>
+        <p>Mini trufas e pipoca doce para festejar qualquer ocasião.</p>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="thumb icon-thumb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.6-9.5-9C.8 8.4 2.6 4.5 6.3 4.1 8.6 3.9 10.7 5 12 6.8 13.3 5 15.4 3.9 17.7 4.1c3.7.4 5.5 4.3 3.8 7.9C19 16.4 12 21 12 21z" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="info">
+        <h3>Morango cravejado</h3>
+        <p>Morangos frescos cravejados com chocolate, um clássico irresistível.</p>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="thumb icon-thumb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.6-9.5-9C.8 8.4 2.6 4.5 6.3 4.1 8.6 3.9 10.7 5 12 6.8 13.3 5 15.4 3.9 17.7 4.1c3.7.4 5.5 4.3 3.8 7.9C19 16.4 12 21 12 21z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="info">
+        <h3>Morango do amor</h3>
+        <p>A versão caramelizada e recheada do morango, feita com carinho.</p>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="thumb"><img src="images/variedade-bolos.png" alt="Variedade de bolos com diferentes coberturas"></div>
+      <div class="info">
+        <h3>Feito sob encomenda</h3>
+        <p>Escolha o sabor e combine com a Juliana pelo WhatsApp.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="gallery-strip">
+  <div class="section-head">
+    <span class="script">um gostinho do que sai do forno</span>
+    <h2>Feitos com amor e carinho</h2>
+  </div>
+  <div class="gallery-grid">
+    <img src="images/bolo-cenoura.png" alt="Fatia de bolo de cenoura">
+    <img src="images/bolo-queijo.png" alt="Bolo coberto com queijo ralado e tomate">
+    <img src="images/variedade-bolos.png" alt="Seleção de bolos variados">
+  </div>
+</section>
+
+<section id="sobre" class="about">
+  <div>
+    <p class="about-quote">"Cada bolo sai da minha cozinha do jeitinho que eu faria pra minha própria família — <span>sempre bem saboroso.</span>"</p>
+  </div>
+  <div>
+    <img src="images/logo.png" alt="Logo Confeitaria da Juliana" style="max-width:220px; margin:0 auto; border-radius:50%;">
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Bora combinar sua encomenda?</h2>
+  <p>Fale direto com a Juliana pelo WhatsApp e escolha o seu doce favorito.</p>
+  <a class="btn-light" href="https://wa.me/5511981828580" target="_blank" rel="noopener">Chamar no WhatsApp — (11) 98182-8580</a>
+</div>
+
+<footer>
+  <p><strong>Confeitaria da Juliana</strong> — Juliana Da Rocha Pereira</p>
+  <p>Bolos · Tortas · Doces em geral · Morango cravejado · Morango do amor</p>
+</footer>
+
+</body>
+</html>
